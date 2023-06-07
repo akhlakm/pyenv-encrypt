@@ -3,7 +3,6 @@
 *.yml
 *.yaml
 *.json
-*.toml
 *.egg-info/
 
 dist/

@@ -1,0 +1,25 @@
+[project]
+name = "pyenv-encrypt"
+version = "0.0.1"
+authors = [
+    { name="Akhlak Mahmood", email="akhlakm@gatech.edu" },
+]
+description = "GPG based env file encryptor utility."
+readme = "README.md"
+requires-python = ">=3.0"
+classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/akhlakm/pyenv-encrypt"
+"Bug Tracker" = "https://github.com/akhlakm/pyenv-encrypt/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["pyenv_enc"]
