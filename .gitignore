@@ -1,0 +1,10 @@
+*.pyc
+*.env
+*.yml
+*.yaml
+*.json
+*.toml
+*.egg-info/
+
+dist/
+build/
