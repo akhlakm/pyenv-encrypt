@@ -136,7 +136,7 @@ def gpg_decrypt(value: str) -> str:
     return str(encvalue, encoding="utf-8")
 
 
-def encrypted(value : string) -> bool:
+def encrypted(value : str) -> bool:
     return type(value) == str and value.startswith(_MARKUP)
 
 
