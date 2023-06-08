@@ -19,7 +19,7 @@ version() {
 tag() {
     # create a new git tag using the pyproject.toml version
     # and push the tag to origin
-    version=$(sed -n 's/version = "\(.*\)"/\1/p' file.txt)
+    version=$(sed -n 's/version = "\(.*\)"/\1/p' pyproject.toml)
     git tag v$version && git push origin v$version
 }
 
