@@ -16,6 +16,13 @@ version() {
     sed -i "s/\(version = \"\)[^\"]*\"/\1$NEW_VERSION\"/" pyproject.toml
 }
 
+tag() {
+    # create a new git tag using the pyproject.toml version
+    # and push the tag to origin
+    version=$(sed -n 's/version = "\(.*\)"/\1/p' file.txt)
+    git tag v$version && git push origin v$version
+}
+
 clean() {
     /bin/rm -rf dist *.egg-info
 }
