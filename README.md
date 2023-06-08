@@ -38,28 +38,35 @@ pip install git+https://github.com/akhlakm/pyenv-encrypt.git
 ### Dependencies
 The `gpg` utility must be installed in your system. GPG comes built-in with most versions of Linux OS. For Mac, use homebrew: `brew install gpg`.
 
-See the official [installation instructions](https://gnupg.org/download/) for more info. Run the following the verify GPG is installed.
+See the official [installation instructions](https://gnupg.org/download/) for more info. Run the following command to check if GPG is installed.
 
 ```sh
 gpg --version
 ```
 
-The following python packages are installed to support reading files.
+Python dependencies:
 - python-dotenv
 - pyyaml
 
 
 ## Commandline Usage
-Use the `pyenc` utility to encrypt or decrypt your config/env files direct from the terminal.
+After installation, use the `pyenc` command to encrypt or decrypt your config/env files directly from terminal.
 
 ```sh
 pyenc .env
 ```
 
-Multiple files can also be encrypted.
+Multiple files can also be processed.
 ```sh
 pyenc .env vault.yaml data.json
 ```
+
+`pyenc` will toggle between encryption and decryption. To force encryption or decryption specify `-e` or `-d` respectively.
+
+```sh
+pyenc -e .env vault.yaml data.json
+```
+
 
 ## Use As A Python Module
 
@@ -84,7 +91,7 @@ decrypted = enc.gpg_decrypt(encrypted)
 print(decrypted)
 
 # Recursively encrypt the string fields of a dictionary.
-# This is useful to encrypt the JSON, YAML, TOML files.
+# This is useful to encrypt JSON, YAML, TOML files.
 mydict = {
     "key1": 1234,
     "key2": "hello world",
