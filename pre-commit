@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-## To enable this, copy this file into your .git/hooks/ directory.
-## Or symlink using `ln -s .git/hooks/pre-commit pre-commit`
-
-pyenc -e .env
+## To enable this hook, create a symlink or copy this file:
+## ln -s $PWD/pre-commit .git/hooks/pre-commit
 
 ## Add more files if necessary.
+pyenc -e .env
+
+
+## Finally, restage the files.
+git diff --name-only --cached | xargs -l git add
