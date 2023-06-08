@@ -50,7 +50,7 @@ def exec(command, *, stdin=None, capture=True) -> argparse.Namespace:
     return result
 
 
-def check_pubkey(userid) -> bool:
+def check_gpg_pubkey(userid) -> bool:
     """
     Check if public key exists for userid. Else create a new one.
     
@@ -184,7 +184,7 @@ def main():
                 "Environment variable $USER undefined. Please provide --user value.")
 
     # Check GPG setup
-    check_pubkey(args.user)
+    check_gpg_pubkey(args.user)
 
     for filepath in args.filelist:
         filepath = os.path.expanduser(filepath)
