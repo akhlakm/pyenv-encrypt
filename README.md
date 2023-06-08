@@ -23,16 +23,17 @@ ANOTHERVAR="!ENC#~ hQGMA8pKDfwTzwbdAQv+JRBiVJB3rFqjONyXbBuN6pwzfHkHR43rbSIGX0o/B
 - Automatic decision of encryption or decryption based on file contents.
 
 ## Installation
-To use, clone this repo and install with `pip`.
+You can install `pyenv-encrypt` directly from [PyPI](https://pypi.org/project/pyenv-encrypt) using `pip`.
+
+```sh
+pip install pyenv-encrypt
+```
+
+Alternatively, clone this repo and install with `pip`.
 ```sh
 git clone git+https://github.com/akhlakm/pyenv-encrypt.git
 cd pyenv-encrypt
 pip install -e .
-```
-
-Alternatively, use the following for packaging (for example, in your `requirements.txt` file).
-```sh
-pip install git+https://github.com/akhlakm/pyenv-encrypt.git
 ```
 
 ### Dependencies
