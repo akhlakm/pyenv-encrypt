@@ -174,8 +174,7 @@ def decrypt_data(data: dict) -> dict:
 
     return data
 
-
-if __name__ == "__main__":
+def main():
     args = parse_arguments()
 
     if args.user is None:
@@ -214,3 +213,6 @@ if __name__ == "__main__":
                 data = decrypt_data(content)
                 save_file(filepath, data)
                 print("Decrypt:", filepath)
+
+if __name__ == "__main__":
+    main()
