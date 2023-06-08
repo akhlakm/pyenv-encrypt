@@ -68,6 +68,8 @@ pyenc .env vault.yaml data.json
 pyenc -e .env vault.yaml data.json
 ```
 
+To make sure you do not commit unencrypted files, you can setup a githook for your repository.
+See an [example pre-commit](pre-commit) file here.
 
 ## Use As A Python Module
 
