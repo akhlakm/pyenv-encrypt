@@ -136,6 +136,10 @@ def gpg_decrypt(value: str) -> str:
     return str(encvalue, encoding="utf-8")
 
 
+def encrypted(value : string) -> bool:
+    return type(value) == str and value.startswith(_MARKUP)
+
+
 def encrypt_data(userid: str, data: dict) -> dict:
     """
     Recursively loop over a dictionary and encrypt all string fields.
@@ -143,13 +147,13 @@ def encrypt_data(userid: str, data: dict) -> dict:
     """
     for key, value in data.items():
         # encrypt the string values
-        if type(value) == str and not value.startswith(_MARKUP):
+        if not encrypted(value):
             data[key] = gpg_encrypt(userid, value)
         elif type(value) == dict:
             data[key] = encrypt_data(userid, value)
         elif type(value) == list:
             for i in range(len(value)):
-                if type(value[i]) == str and not value[i].startswith(_MARKUP):
+                if not encrypted(value[i]):
                     value[i] = gpg_encrypt(userid, value[i])
             data[key] = value
     return data
@@ -162,17 +166,19 @@ def decrypt_data(data: dict) -> dict:
     """
     for key, value in data.items():
         # decrypt the string values
-        if type(value) == str and value.startswith(_MARKUP):
+        if encrypted(value):
             data[key] = gpg_decrypt(value)
         elif type(value) == dict:
             data[key] = decrypt_data(value)
         elif type(value) == list:
             for i in range(len(value)):
-                if type(value[i]) == str and value[i].startswith(_MARKUP):
+                if encrypted(value[i]):
                     value[i] = gpg_decrypt(value[i])
             data[key] = value
 
     return data
+
+
 
 def main():
     args = parse_arguments()
