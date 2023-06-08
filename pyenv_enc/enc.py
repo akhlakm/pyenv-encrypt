@@ -195,12 +195,12 @@ def main():
         if args.decrypt:
             data = decrypt_data(content)
             save_file(filepath, data)
-            print("Encrypt:", filepath)
+            print("Decrypt:", filepath)
 
         if args.encrypt:
             data = encrypt_data(args.user, content)
             save_file(filepath, data)
-            print("Decrypt:", filepath)
+            print("Encrypt:", filepath)
 
         if args.decrypt == False and args.encrypt == False:
             pattern = re.compile(rf"{_MARKUP}")
