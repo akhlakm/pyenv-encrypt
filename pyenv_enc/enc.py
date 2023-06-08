@@ -80,13 +80,13 @@ def check_gpg_pubkey(userid) -> bool:
 def read_file(file: str) -> dict:
     with open(file, 'r') as fp:
         if file.endswith(".yaml") or file.endswith(".yml"):
-            print("Loading YAML file:", file)
+            # print("Loading YAML file:", file)
             return yaml.safe_load(fp)
         elif file.endswith(".json"):
-            print("Loading JSON file:", file)
+            # print("Loading JSON file:", file)
             return json.load(fp)
         else:
-            print("Loading ENV file:", file)
+            # print("Loading ENV file:", file)
             return dotenv_values(stream=fp)
 
 
