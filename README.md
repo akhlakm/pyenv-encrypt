@@ -31,7 +31,7 @@ pip install pyenv-encrypt
 
 Alternatively, clone this repo and install with `pip`.
 ```sh
-git clone git+https://github.com/akhlakm/pyenv-encrypt.git
+git clone https://github.com/akhlakm/pyenv-encrypt.git
 cd pyenv-encrypt
 pip install -e .
 ```
