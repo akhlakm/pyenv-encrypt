@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-## To enable this check, copy this file into your .git/hooks/ directory.
+## To enable this, copy this file into your .git/hooks/ directory.
 ## Or symlink using `ln -s .git/hooks/pre-commit pre-commit`
 
-if ! grep -iq "ENC#~" .env; then
-echo " Not encrypted: .env"; exit 1; fi
+pyenc -e .env
 
 ## Add more files if necessary.
