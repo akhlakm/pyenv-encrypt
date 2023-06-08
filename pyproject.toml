@@ -7,15 +7,26 @@ authors = [
 description = "GPG based env file encryptor utility."
 readme = "README.md"
 requires-python = ">=3.0"
+
+keywords = ["encryption", "development"]
+
 classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
 ]
 
+dependencies = [
+  "pyyaml",
+  "python-dotenv",
+]
+
 [project.urls]
 "Homepage" = "https://github.com/akhlakm/pyenv-encrypt"
 "Bug Tracker" = "https://github.com/akhlakm/pyenv-encrypt/issues"
+
+[project.scripts]
+pyenc = "pyenv_enc:enc.main"
 
 [build-system]
 requires = ["setuptools>=61.0"]
