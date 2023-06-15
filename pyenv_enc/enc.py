@@ -78,6 +78,11 @@ def check_gpg_pubkey(userid) -> bool:
 
 
 def read_file(file: str) -> dict:
+    """
+    Read an env variable file into a dict object.
+    File format is auto detected based on its extension.
+
+    """
     with open(file, 'r') as fp:
         if file.endswith(".yaml") or file.endswith(".yml"):
             # print("Loading YAML file:", file)
@@ -91,6 +96,11 @@ def read_file(file: str) -> dict:
 
 
 def save_file(file: str, data: dict):
+    """
+    Save a dict object as a file.
+    File format is auto detected based on its extension.
+
+    """
     with open(file, 'w+') as fp:
         if file.endswith(".yaml") or file.endswith(".yml"):
             yaml.dump(data, fp, indent=4)
@@ -137,6 +147,7 @@ def gpg_decrypt(value: str) -> str:
 
 
 def encrypted(value : str) -> bool:
+    """ Returns True if the given string is encrypted."""
     return type(value) == str and value.startswith(_MARKUP)
 
 
