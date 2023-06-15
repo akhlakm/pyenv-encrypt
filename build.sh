@@ -11,9 +11,12 @@ publish() {
 
 version() {
     # current version
-    grep version pyproject.toml
+    echo "Current version: $(grep version pyproject.toml)"
     read -p "new version string? " NEW_VERSION
     sed -i "s/\(version = \"\)[^\"]*\"/\1$NEW_VERSION\"/" pyproject.toml
+    sed -i "s/\(__version__ = \"\)[^\"]*\"/\1$NEW_VERSION\"/" pyenv_enc/__init__.py
+    # confirm
+    echo "Updated version: $(grep version pyproject.toml)"
 }
 
 tag() {
